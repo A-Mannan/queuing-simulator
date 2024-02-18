@@ -51,7 +51,7 @@ class Simulator:
     def initialize_customers(self) -> List[Customer]:
         customers: List[Customer] = []
         priorities = self.get_customer_priority()
-        for customer_idx in range(1, self.num_of_customers+1):
+        for customer_idx in range(self.num_of_customers):
             arrival_random_num = np.random.rand()
             inter_arrival_time = (
                 0
@@ -61,6 +61,7 @@ class Simulator:
                     self.df_avg_arrival_time_lookup,
                 )
             )
+            print(customer_idx)
             arrival_time = (
                 0
                 if customer_idx == 0
